@@ -1,23 +1,112 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import IcSearch from './assets/icons/IcSearch.svg';
+ 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+  
+
+    <div className="site-wrap">
+      <div className="site-mobile-menu site-navbar-target">
+        <div className="site-mobile-menu-header">
+          <div className="site-mobile-menu-close mt-3">
+            <span className="icon-close2 js-menu-toggle"></span>
+          </div>
+        </div>
+        <div className="site-mobile-menu-body"></div>
+      </div>
+
+      <div className="header-top">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-12 col-lg-6 d-flex">
+              <a href="index.html" className="site-logo">
+                Meranda
+              </a>
+
+              <a
+                href="#"
+                className="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"
+              >
+                <span className="icon-menu h3"></span>
+              </a>
+            </div>
+            <div className="col-12 col-lg-6 ml-auto d-flex justify-content-end">
+              <form action="#" className="search-form d-inline-block">
+                <div className="d-flex">
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Search..."
+                  />
+                  <button type="submit" className="btn btn-secondary">
+                    <img src={IcSearch} alt="" />
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div className="col-6 d-block d-lg-none text-right"></div>
+          </div>
+        </div>
+
+        <div
+          className="site-navbar py-2 js-sticky-header site-navbar-target d-none pl-0 d-lg-block"
+          role="banner"
         >
-          Learn React
-        </a>
-      </header>
+          <div className="container">
+            <div className="d-flex align-items-center">
+              <div className="mr-auto">
+                <nav
+                  className="site-navigation position-relative text-right"
+                  role="navigation"
+                >
+                  <ul className="site-menu main-menu js-clone-nav mr-auto d-none pl-0 d-lg-block">
+                    <li className="active">
+                      <a href="index.html" className="nav-link text-left">
+                        Home
+                      </a>
+                    </li>
+                    <li>
+                      <a href="categories.html" className="nav-link text-left">
+                        Categories
+                      </a>
+                    </li>
+                    <li>
+                      <a href="categories.html" className="nav-link text-left">
+                        Politics
+                      </a>
+                    </li>
+                    <li>
+                      <a href="categories.html" className="nav-link text-left">
+                        Business
+                      </a>
+                    </li>
+                    <li>
+                      <a href="categories.html" className="nav-link text-left">
+                        Health
+                      </a>
+                    </li>
+                    <li>
+                      <a href="categories.html" className="nav-link text-left">
+                        Design
+                      </a>
+                    </li>
+                    <li>
+                      <a href="categories.html" className="nav-link text-left">
+                        Sport
+                      </a>
+                    </li>
+                    <li>
+                      <a href="contact.html" className="nav-link text-left">
+                        Contact
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
