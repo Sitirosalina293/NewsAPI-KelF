@@ -2,12 +2,16 @@ import React from 'react'
 
 const NewsItem=({title, description, url, urlToImage})=> {
     return(
-        <div>
-            <img src={urlToImage} alt="News Image"/>
-            <h3>
-                <a href={url}>{title}</a>
-            </h3>
-            <p>{description}</p>
+        <div className="parentCard card">
+            <img className="card-img-top" src={urlToImage} alt="News Image"/>
+            <div className="card-body">
+                <h5 className="card-title"><a href={url}>{title}</a></h5>
+                <p className="card-text">{description}</p>
+            </div>
+            <div className='d-flex p-3'>
+                <button className='m-2 py-2 px-4'>News</button>
+                <button className='m-2 py-2 px-4 border-none'>Save</button>
+            </div>
         </div>
     );
 }
