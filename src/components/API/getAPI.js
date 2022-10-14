@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-function useAPI({req}) {
+function useAPI({ req }) {
   const [data, setData] = useState([]);
-  const API = `https://newsapi.org/v2/${req}&pageSize=21&apiKey=7ff8d9ccb1354e778cd29a24d4957321`;
+  const API = `https://newsapi.org/v2/${req}&pageSize=21&apiKey=22c564d24253471baef0baf5adf1d8bb`;
 
   useEffect(() => {
     const getPosts = async () => {

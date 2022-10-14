@@ -2,8 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import useAPI from "../../components/getAPI";
 
-
-
 function Post() {
   
   let params = useParams();

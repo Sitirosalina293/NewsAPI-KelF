@@ -8,7 +8,7 @@ export default function NewsList(req) {
         <div className='container'>
             <div className="row">
                 {articles?.map(({title, description, url, urlToImage}) =>(
-                    <div class="col-md-4">
+                    <div class="col-md-4 py-2">
                         <NewsItem 
                             title={title}
                             description={description}
