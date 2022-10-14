@@ -1,0 +1,48 @@
+.head2{
+    width : 100%;
+    min-width: 880px;
+    box-shadow: 0 0 10px #d9d9d9;
+  }
+  .header_2{
+    height : 65px;
+    width : 85%;
+  }
+  .col2{
+    display :flex;
+  }
+  h3{
+    color:rgb(6, 42, 5);
+  }
+  .col2-item{
+    color:rgb(6, 42, 5);
+    font-size : 1.2em;
+    font-weight:500;
+    text-decoration:none;
+  }
+.Tag{
+  width: fit-content;
+}
+.Nvabar{
+  width: fit-content;
+}
+.col2-item:hover{
+  color: #17a12c!important;
+}
+.cari {
+  width:30%;
+  background : #EFEFEF!important;
+  border-radius:15px;
+  font-family : 'AvenirMedium';
+  font-size : 15px;
+}
+input{
+  background:none;
+  border:none;
+  width:80%;
+  font-weight:400;
+  color : #000000;
+  opacity:80%;
+}
+input:focus {
+  outline: none;
+}

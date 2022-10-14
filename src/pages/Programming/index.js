@@ -1,9 +1,8 @@
-import React from 'react'
+import NewsList from "../../components/NewsItem/NewsList";
 
-function Programming() {
-  return (
-    <div>Programming</div>
-  )
+const Programming =()=>{
+  const news = NewsList({req:'everything?q=programming&from=2022-09-14&sortBy=publishedAt'})
+  return news;
 }
 
-export default Programming
+export default Programming;

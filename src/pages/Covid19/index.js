@@ -1,9 +1,8 @@
-import React from 'react'
+import NewsList from "../../components/NewsItem/NewsList";
 
-function Covid19() {
-  return (
-    <div>Covid19</div>
-  )
+const covid=()=>{
+  const news = NewsList({req:'everything?q=covid&from=2022-09-14&sortBy=publishedAt'})
+  return news;
 }
 
-export default Covid19
+export default covid;
