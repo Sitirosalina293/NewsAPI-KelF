@@ -6,14 +6,18 @@ export default function NewsList(req) {
     const {articles} = useAPI(req)
     return (
         <div className='container'>
-            {articles?.map(({title, description, url, urlToImage}) =>(
-                <NewsItem 
-                title={title}
-                description={description}
-                url={url}
-                urlToImage={urlToImage}
-                />
-            ))}
+            <div className="row">
+                {articles?.map(({title, description, url, urlToImage}) =>(
+                    <div class="col-md-4">
+                        <NewsItem 
+                            title={title}
+                            description={description}
+                            url={url}
+                            urlToImage={urlToImage}
+                            />
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

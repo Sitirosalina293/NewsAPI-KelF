@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../Navbar/navbar.css';
 import { Link } from "react-router-dom";
+import Cari from "../../pages/Search"
 
-class Header extends React.Component {
-  render(){
+const Header = () => {
+  const [input, setInput] = useState('')
+  const onInputChange = (event) => {
+    setInput(event.target.value)
+    if (input!=='')
+    {
+      <Cari 
+      req={input}
+      />
+    }
+}
+
     return (
     <div className="head2">
       <nav className="header_2 mx-auto navbar sticky-top d-flex">
@@ -18,11 +29,11 @@ class Header extends React.Component {
         </div>
         <div className="cari ">
           <img alt="..." src='https://ik.imagekit.io/10tn5i0v1n/frontend/search_icon.png' height="15" className="d-inline-block align-text-center mx-3" />
-          <input type="text" className="my-2" placeholder="Kamu sedang cari apa siti . . ." />
+          <input className="my-2" type="text" id="myInput" placeholder="Search . . ." value={input} onChange={onInputChange}></input>
         </div>
       </nav >
     </div>
   )
 }
-}
+
 export default Header
