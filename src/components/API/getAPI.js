@@ -3,7 +3,7 @@ import axios from "axios";
 
 function useAPI({req}) {
   const [data, setData] = useState([]);
-  const API = `https://newsapi.org/v2/${req}&apiKey=abd149c76aed460cae4ce027619714fa`;
+  const API = `https://newsapi.org/v2/${req}&pageSize=21&apiKey=7ff8d9ccb1354e778cd29a24d4957321`;
 
   useEffect(() => {
     const getPosts = async () => {

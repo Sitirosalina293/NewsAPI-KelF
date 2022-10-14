@@ -6,7 +6,7 @@ export default function NewsList(req) {
     const {articles} = useAPI(req)
     return (
         <div className='container'>
-            <div class="row">
+            <div className="row">
                 {articles?.map(({title, description, url, urlToImage}) =>(
                     <div class="col-md-4">
                         <NewsItem 

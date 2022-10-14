@@ -5,6 +5,7 @@ import Covid19 from '../pages/Covid19'
 import Home from '../pages/Home'
 import Programming from '../pages/Programming'
 import Saved from '../pages/Saved'
+import Cari from '../pages/Search'
 
 function Router() {
   return (
@@ -16,6 +17,7 @@ function Router() {
                 <Route path="/programming" element={ <Programming /> } />
                 <Route path="/covid" element={ <Covid19 /> } />
                 <Route path="/saved" element={ <Saved /> } />
+                <Route path="/search" element={ <Cari /> } />
             </Routes>
         </div>
     </div>
