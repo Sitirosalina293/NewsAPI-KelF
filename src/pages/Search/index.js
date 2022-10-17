@@ -1,8 +1,15 @@
-import NewsList from "../../components/NewsItem/NewsList";
+import React from "react";
+import { Outlet } from "react-router-dom";
 
-const Cari=(req)=>{
-  const news = NewsList({req:('everything?'+req)})
-  return news;
+function Cari() {
+
+  return (
+    <>
+      <div className='container mt-5'>
+        <Outlet />
+      </div>
+    </>
+  );
 }
 
 export default Cari;

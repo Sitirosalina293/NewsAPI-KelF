@@ -1,15 +1,6 @@
-.head2{
-    width : 100%;
-    min-width: 880px;
+.navbar{
     box-shadow: 0 0 10px #d9d9d9;
-  }
-  .header_2{
-    height : 65px;
-    width : 85%;
-  }
-  .col2{
-    display :flex;
-  }
+}
   h3{
     color:rgb(6, 42, 5);
   }
@@ -29,7 +20,6 @@
   color: #17a12c!important;
 }
 .cari {
-  width:30%;
   background : #EFEFEF!important;
   border-radius:15px;
   font-family : 'AvenirMedium';

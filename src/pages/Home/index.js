@@ -1,8 +1,7 @@
 import NewsList from "../../components/NewsItem/NewsList";
 
 const Home=()=>{
-  const news = NewsList({req:'top-headlines?country=id'})
-  return news;
+  return NewsList({req:'top-headlines?country=id&pageSize=21'});
 }
 
 export default Home;

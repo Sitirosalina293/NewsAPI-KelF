@@ -1,39 +1,43 @@
 import React, { useState } from 'react';
 import '../Navbar/navbar.css';
 import { Link } from "react-router-dom";
-import Cari from "../../pages/Search"
+import { useNavigate } from "react-router-dom";
 
-const Header = () => {
-  const [input, setInput] = useState('')
-  const onInputChange = (event) => {
-    setInput(event.target.value)
-    if (input!=='')
-    {
-      <Cari 
-      req={input}
-      />
-    }
-}
-
+export default function Navbar() {
+  const navigate = useNavigate();
+  const [input, setInput] = useState('');
+  const navigateToSearch = () => {
+    navigate(`/search/${ input }`, { replace: true });
+  };
     return (
-    <div className="head2">
-      <nav className="header_2 mx-auto navbar sticky-top d-flex">
-        <div className='Tag'>
-        <Link to="/" className='nav-link'><h3 className='fw-bold'>News App</h3></Link>
-        </div>
-        <div className="Nvabar col2 nav-item">
-          <Link to="/" className='col2-item'>Indonesia</Link>
-          <Link to="/programming" className='col2-item mx-4'>Programming</Link>
-          <Link to="/covid" className='col2-item'>COVID-19</Link>
-          <Link to="/saved" className='col2-item mx-4'>Saved</Link>
-        </div>
-        <div className="cari ">
-          <img alt="..." src='https://ik.imagekit.io/10tn5i0v1n/frontend/search_icon.png' height="15" className="d-inline-block align-text-center mx-3" />
-          <input className="my-2" type="text" id="myInput" placeholder="Search . . ." value={input} onChange={onInputChange}></input>
+    <div className="">
+      <nav className="navbar navbar-expand-lg">
+        <Link to="/" className='nav-link mx-3'><h3 className='fw-bold'>News App</h3></Link>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse mx-4" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className='nav-item'>
+              <Link to="/" className='nav-link col2-item m-auto'>Indonesia</Link>
+            </li>
+            <li className='nav-item'>
+              <Link to="/programming" className='nav-link col2-item m-auto'>Programming</Link>
+            </li>
+            <li className='nav-item'>
+              <Link to="/covid" className='nav-link col2-item m-auto'>COVID-19</Link>
+            </li>
+            <li className='nav-item'>
+              <Link to="/saved" className='nav-link col2-item m-auto'>Saved</Link>
+            </li>
+          </ul>
+          <div className="d-flex cari my-2">
+            <input className="mx-3 my-2" type="text" value={input} onChange={(e)=>setInput(e.target.value)} placeholder="Search . . ."></input>
+            <a onClick={navigateToSearch} className="my-2"><img alt="..." src='https://ik.imagekit.io/10tn5i0v1n/frontend/search_icon.png' height="15" className="d-inline-block align-text-center mx-3"/></a>
+          </div>
         </div>
       </nav >
     </div>
   )
 }
-
-export default Header

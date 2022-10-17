@@ -3,10 +3,13 @@
     height: 100%;
     border-radius: 100px !important;
 }
+.imgCard {
+    height: 15rem;
+    width:min-content;
+}
 button{
     border: none!important;
     border-radius: 10px !important;
-
 }
 a{
     text-decoration: none!important;
