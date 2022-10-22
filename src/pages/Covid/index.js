@@ -1,30 +1,30 @@
-import { useEffect } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { fetchData} from '../../features/programmingSlice'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchData} from '../../features/covidSlice';
 
 
 import NewsItem from '../../components/NewsItem/NewsItem';
 import { addToSaved, removeFromSaved } from '../../features/savedSlice';
 import Spinners from '../../components/spiner'
 
-const Programming =()=>{
+function Covid(){
   const dispatch = useDispatch()
 
-  const allNews = useSelector((state) => state.programming.article)
-  const loading = useSelector((state) => state.programming.loading)
+  const allNews = useSelector((state) => state.covid.article)
+  const loading = useSelector((state) => state.covid.loading)
 
   useEffect(() => {
     dispatch(fetchData())
   }, [dispatch])
   const savedItems = useSelector((state) => state.saved.savedItems)
 
-    const handleAddToSaved = (item) => {
-        dispatch(addToSaved(item))
-    }
-    const handleRemoveFromSaved = (item) => {
-        dispatch(removeFromSaved(item))
-    }
-
+  const handleAddToSaved = (item) => {
+      dispatch(addToSaved(item))
+  }
+  const handleRemoveFromSaved = (item) => {
+      dispatch(removeFromSaved(item))
+  }
+  
   return (
     <div className='container'>
       <div className="row">
@@ -57,4 +57,4 @@ const Programming =()=>{
   );
 }
 
-export default Programming;
+export default Covid;

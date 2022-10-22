@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import '../Navbar/navbar.css';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import { fetchData } from '../../features/searchSlice';
 
 export default function Navbar() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [input, setInput] = useState('');
   const navigateToSearch = () => {
+    dispatch(fetchData(input))
     navigate(`/search/${ input }`, { replace: true });
   };
     return (
