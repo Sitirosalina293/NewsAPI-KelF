@@ -7,12 +7,12 @@ const API = conAPI({req:'top-headlines?country=id&pageSize=21'});
 const initialState = {
   article: [],
   loading: false,
-}
+};
 
-export const fetchData = createAsyncThunk('home/fetchData', async () => {
+export const fetchData = createAsyncThunk('home/fetchData', async() => {
   const res = await axios.get(API)
   return res.data.articles
-})
+});
 
 const homeSlice = createSlice({
   name: 'articles',
@@ -20,17 +20,17 @@ const homeSlice = createSlice({
   reducers: {},
   extraReducers: {
     [fetchData.pending]: (state) => {
-      state.isLoading = true;
+      state.loading = true;
     },
-    [fetchData.fulfilled]: (state, { payload }) => {
+    [fetchData.fulfilled]: (state, {payload}) => {
       state.article = payload;
-      state.isLoading = false;
+      state.loading = false;
     },
     [fetchData.rejected]: (state, action) => {
-      state.isLoading = true;
+      state.loading = true;
       state.error = action.error.message;
     },
   }
-})
+});
 
-export default homeSlice.reducer
+export default homeSlice.reducer;

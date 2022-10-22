@@ -1,10 +1,10 @@
 function latestMonth() {
-    const date = new Date();
-    const year = date.getFullYear();
-    const previousMonth = date.getMonth();
-    const day = date.getDate();
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth();
+    const day = today.getDate();
   
-    const joinDate = [year, previousMonth, day].join('-');
-    return joinDate;
+    const lastMonth = [year, month, day].join('-');
+    return lastMonth;
 }
 export default latestMonth;

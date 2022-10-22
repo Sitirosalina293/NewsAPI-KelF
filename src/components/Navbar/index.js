@@ -38,7 +38,9 @@ export default function Navbar() {
           </ul>
           <div className="d-flex cari my-2">
             <input className="mx-3 my-2" type="text" value={input} onChange={(e)=>setInput(e.target.value)} placeholder="Search . . ."></input>
-            <a onClick={navigateToSearch} className="my-2"><img alt="..." src='https://ik.imagekit.io/10tn5i0v1n/frontend/search_icon.png' height="15" className="d-inline-block align-text-center mx-3"/></a>
+            <a onClick={navigateToSearch} className="my-2">
+              <img alt="..." src='https://ik.imagekit.io/10tn5i0v1n/frontend/search_icon.png' height="15" className="d-inline-block align-text-center mx-3"/>
+            </a>
           </div>
         </div>
       </nav >

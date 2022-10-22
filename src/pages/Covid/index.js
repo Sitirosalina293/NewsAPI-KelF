@@ -10,13 +10,14 @@ import Spinners from '../../components/spiner'
 function Covid(){
   const dispatch = useDispatch()
 
-  const allNews = useSelector((state) => state.covid.article)
+  const News = useSelector((state) => state.covid.article)
   const loading = useSelector((state) => state.covid.loading)
 
   useEffect(() => {
     dispatch(fetchData())
   }, [dispatch])
-  const savedItems = useSelector((state) => state.saved.savedItems)
+
+  const saved = useSelector((state) => state.saved.savedNews)
 
   const handleAddToSaved = (item) => {
       dispatch(addToSaved(item))
@@ -28,7 +29,7 @@ function Covid(){
   return (
     <div className='container'>
       <div className="row">
-        {allNews.map((news, index) => (
+        {News.map((news, index) => (
           <div class="col-md-4 py-2">
             <NewsItem
               url={news?.url}
@@ -37,12 +38,12 @@ function Covid(){
               title={news?.title}
               description={news?.description}
               onClick={() => {
-                savedItems.find((item) => item.title === news.title)
+                saved.find((item) => item.title === news.title)
                   ? handleRemoveFromSaved(news)
                   : handleAddToSaved(news)
               }}
               buttonName={
-                savedItems?.find((item) => item.title === news.title) ? (
+                saved?.find((item) => item.title === news.title) ? (
                   'Unsave'
                 ) : (
                   'Save'

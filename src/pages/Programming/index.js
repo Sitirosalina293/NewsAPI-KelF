@@ -10,25 +10,26 @@ import Spinners from '../../components/spiner'
 const Programming =()=>{
   const dispatch = useDispatch()
 
-  const allNews = useSelector((state) => state.programming.article)
+  const News = useSelector((state) => state.programming.article)
   const loading = useSelector((state) => state.programming.loading)
 
   useEffect(() => {
     dispatch(fetchData())
   }, [dispatch])
-  const savedItems = useSelector((state) => state.saved.savedItems)
 
-    const handleAddToSaved = (item) => {
-        dispatch(addToSaved(item))
-    }
-    const handleRemoveFromSaved = (item) => {
-        dispatch(removeFromSaved(item))
-    }
+  const savedNews = useSelector((state) => state.saved.savedNews)
+
+  const handleAddToSaved = (item) => {
+      dispatch(addToSaved(item))
+  }
+  const handleRemoveFromSaved = (item) => {
+      dispatch(removeFromSaved(item))
+  }
 
   return (
     <div className='container'>
       <div className="row">
-        {allNews.map((news, index) => (
+        {News.map((news, index) => (
           <div class="col-md-4 py-2">
             <NewsItem
               url={news?.url}
@@ -37,12 +38,12 @@ const Programming =()=>{
               title={news?.title}
               description={news?.description}
               onClick={() => {
-                savedItems.find((item) => item.title === news.title)
+                savedNews.find((item) => item.title === news.title)
                   ? handleRemoveFromSaved(news)
                   : handleAddToSaved(news)
               }}
               buttonName={
-                savedItems?.find((item) => item.title === news.title) ? (
+                savedNews?.find((item) => item.title === news.title) ? (
                   'Unsave'
                 ) : (
                   'Save'

@@ -9,14 +9,14 @@ const SearchDetail = () => {
 
   const allNews = useSelector((state) => state.search.article)
   const loading = useSelector((state) => state.search.loading)
-  const savedItems = useSelector((state) => state.saved.savedItems)
+  const savedNews = useSelector((state) => state.saved.savedNews)
 
-    const handleAddToSaved = (item) => {
-        dispatch(addToSaved(item))
-    }
-    const handleRemoveFromSaved = (item) => {
-        dispatch(removeFromSaved(item))
-    }
+  const handleAddToSaved = (item) => {
+      dispatch(addToSaved(item))
+  }
+  const handleRemoveFromSaved = (item) => {
+      dispatch(removeFromSaved(item))
+  }
 
   return (
     <div className='container'>
@@ -30,12 +30,12 @@ const SearchDetail = () => {
               title={news?.title}
               description={news?.description}
               onClick={() => {
-                savedItems.find((item) => item.title === news.title)
+                savedNews.find((item) => item.title === news.title)
                   ? handleRemoveFromSaved(news)
                   : handleAddToSaved(news)
               }}
               buttonName={
-                savedItems?.find((item) => item.title === news.title) ? (
+                savedNews?.find((item) => item.title === news.title) ? (
                   'Unsave'
                 ) : (
                   'Save'

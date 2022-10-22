@@ -3,27 +3,17 @@ import axios from 'axios';
 import conAPI from '../components/API/getAPI';
 import latestMonth from '../components/API/latestMonth';
 
-const API = conAPI({req:`everything?q=covid&from=${getPreviousMonth()}&sortBy=publishedAt&pageSize=21`});
+const API = conAPI({req:`everything?q=covid&from=${latestMonth()}&sortBy=publishedAt&pageSize=21`});
 
 const initialState = {
   article: [],
   loading: false,
 };
-function getPreviousMonth() {
-  const date = new Date();
-  const year = date.getFullYear();
-  const previousMonth = date.getMonth();
-  const day = date.getDate();
 
-  const joinDate = [year, previousMonth, day].join('-');
-  return joinDate;
-}
-
-export const fetchData = createAsyncThunk('covid/fetchData', async () => {
+export const fetchData = createAsyncThunk('covid/fetchData', async() => {
   const res = await axios.get(API)
   return res.data.articles
 });
-
 
 const covidSlice = createSlice({
   name: 'covid',
@@ -31,14 +21,14 @@ const covidSlice = createSlice({
   reducers: {},
   extraReducers: {
     [fetchData.pending]: (state) => {
-      state.isLoading = true;
+      state.loading = true;
     },
-    [fetchData.fulfilled]: (state, { payload }) => {
+    [fetchData.fulfilled]: (state, {payload}) => {
       state.article = payload;
-      state.isLoading = false;
+      state.loading = false;
     },
     [fetchData.rejected]: (state, action) => {
-      state.isLoading = true;
+      state.loading = true;
       state.error = action.error.message;
     },
   }

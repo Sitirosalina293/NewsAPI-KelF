@@ -8,26 +8,26 @@ import Spinners from '../../components/spiner'
 function Saved() {
   const dispatch = useDispatch()
 
-  const savedItems = useSelector((state) => state.saved.savedItems)
+  const savedNews = useSelector((state) => state.saved.savedNews)
   const loading = useSelector((state) => state.saved.loading)
 
   const handleAddToSaved = (item) => {
     dispatch(addToSaved(item))
-}
-const handleRemoveFromSaved = (item) => {
+  }
+  const handleRemoveFromSaved = (item) => {
     dispatch(removeFromSaved(item))
-}
+  }
 
   return (
     <>
-        {savedItems.length === 0 ? (
+        {savedNews.length === 0 ? (
           <div className='container'>
             No News Saved
           </div>
         ) : (
           <div className='container'>
           <div className="row">
-            {savedItems.map((news, index) => (
+            {savedNews.map((news, index) => (
               <div class="col-md-4 py-2">
                 <NewsItem
                   url={news?.url}
@@ -36,12 +36,12 @@ const handleRemoveFromSaved = (item) => {
                   title={news?.title}
                   description={news?.description}
                   onClick={() => {
-                    savedItems.find((item) => item.title === news.title)
+                    savedNews.find((item) => item.title === news.title)
                       ? handleRemoveFromSaved(news)
                       : handleAddToSaved(news)
                   }}
                   buttonName={
-                    savedItems?.find((item) => item.title === news.title) ? (
+                    savedNews?.find((item) => item.title === news.title) ? (
                       'Unsave'
                     ) : (
                       'Save'

@@ -2,10 +2,10 @@
     box-shadow: 0 0 10px #d9d9d9;
 }
   h3{
-    color:rgb(6, 42, 5);
+    color:#1a1d73;
   }
   .col2-item{
-    color:rgb(6, 42, 5);
+    color:#1a1d73;
     font-size : 1.2em;
     font-weight:500;
     text-decoration:none;
@@ -17,10 +17,11 @@
   width: fit-content;
 }
 .col2-item:hover{
-  color: #17a12c!important;
+  color: #5053a2!important;
+  font-weight: bold;
 }
 .cari {
-  background : #EFEFEF!important;
+  background : #d8d8f4!important;
   border-radius:15px;
   font-family : 'AvenirMedium';
   font-size : 15px;
@@ -30,7 +31,7 @@ input{
   border:none;
   width:80%;
   font-weight:400;
-  color : #000000;
+  color : #00011f;
   opacity:80%;
 }
 input:focus {

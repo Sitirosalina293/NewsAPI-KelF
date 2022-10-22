@@ -12,16 +12,18 @@ function Router() {
   return (
     <div className="main-container">
         <NavBar/>
-        <div className="main-content mt-5">
+        <div className="main-content">
+          <div className="mt-5">
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/programming" element={ <Programming /> } />
-                <Route path="/covid" element={ <Covid /> } />
-                <Route path="/saved" element={ <Saved /> } />
-                <Route path="/search" element={ <Cari /> }>
-                  <Route path=":input" element={<SearchDetail/>}/>
-                </Route>
+              <Route path="/" element={<Home />} />
+              <Route path="/programming" element={ <Programming /> } />
+              <Route path="/covid" element={ <Covid /> } />
+              <Route path="/saved" element={ <Saved /> } />
+              <Route path="/search" element={ <Cari /> }>
+                <Route path=":input" element={<SearchDetail/>}/>
+              </Route>
             </Routes>
+          </div>
         </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import latestMonth from '../components/API/latestMonth';
 import conAPI from '../components/API/getAPI';
+import latestMonth from '../components/API/latestMonth';
 
 const API = conAPI({req:`everything?q=programming&from=${latestMonth()}&sortBy=publishedAt&pageSize=21`});
 
@@ -10,7 +10,7 @@ const initialState = {
   loading: false,
 };
 
-export const fetchData = createAsyncThunk('programming/fetchData', async () => {
+export const fetchData = createAsyncThunk('programming/fetchData', async() => {
   const res = await axios.get(API)
   return res.data.articles
 });
@@ -21,14 +21,14 @@ const programmingSlice = createSlice({
   reducers: {},
   extraReducers: {
     [fetchData.pending]: (state) => {
-      state.isLoading = true;
+      state.loading = true;
     },
-    [fetchData.fulfilled]: (state, { payload }) => {
+    [fetchData.fulfilled]: (state, {payload}) => {
       state.article = payload;
-      state.isLoading = false;
+      state.loading = false;
     },
     [fetchData.rejected]: (state, action) => {
-      state.isLoading = true;
+      state.loading = true;
       state.error = action.error.message;
     },
   }

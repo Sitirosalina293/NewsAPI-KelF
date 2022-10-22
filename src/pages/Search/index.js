@@ -5,7 +5,7 @@ function Cari() {
 
   return (
     <>
-      <div className='container mt-5'>
+      <div className='container'>
         <Outlet />
       </div>
     </>
