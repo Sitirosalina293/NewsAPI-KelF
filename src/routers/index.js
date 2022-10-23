@@ -1,32 +1,40 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import NavBar from '../components/Navbar';
-import Covid from '../pages/Covid';
-import Home from '../pages/Home';
-import Programming from '../pages/Programming';
-import Saved from '../pages/Saved';
-import Cari from '../pages/Search';
-import SearchDetail from '../pages/Search/searchDetail';
-
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import NavBar from "../components/Navbar";
+import routes from "./routes";
 function Router() {
   return (
     <div className="main-container">
-        <NavBar/>
-        <div className="main-content">
-          <div className="mt-5">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/programming" element={ <Programming /> } />
-              <Route path="/covid" element={ <Covid /> } />
-              <Route path="/saved" element={ <Saved /> } />
-              <Route path="/search" element={ <Cari /> }>
-                <Route path=":input" element={<SearchDetail/>}/>
-              </Route>
-            </Routes>
-          </div>
-        </div>
+      <NavBar />
+      <div className="main-content mt-5">
+        <Routes>
+          {
+            routes.map((route, index) => {
+              return (
+                <Route
+                  key={index}
+                  path={route.path}
+                  element={route.element}
+                >
+                  {
+                    route.children && route.children.map((child, index) => {
+                      return (
+                        <Route
+                          key={index}
+                          path={child.path}
+                          element={child.element}
+                        />
+                      )
+                    })
+                  }
+                </Route>
+              )
+            })
+          }
+        </Routes>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Router
+export default Router;

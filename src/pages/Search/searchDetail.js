@@ -22,7 +22,7 @@ const SearchDetail = () => {
     <div className='container'>
       <div className="row">
         {allNews.map((news, index) => (
-          <div class="col-md-4 py-2">
+          <div className="col-md-4 py-2">
             <NewsItem
               url={news?.url}
               urlToImage={news?.urlToImage}

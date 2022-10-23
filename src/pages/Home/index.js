@@ -29,11 +29,10 @@ function Home() {
     <div className='container'>
       <div className="row">
         {News.map((news, index) => (
-          <div class="col-md-4 py-2">
+          <div key={index} className="col-md-4 py-2">
             <NewsItem
               url={news?.url}
               urlToImage={news?.urlToImage}
-              key={index}
               title={news?.title}
               description={news?.description}
               onClick={() => {

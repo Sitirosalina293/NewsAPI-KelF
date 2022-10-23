@@ -1,0 +1,25 @@
+.card:hover{
+    box-shadow: 0 0 10px #cbcbcb;
+}
+.card{
+    border-radius: 15px!important;
+    border:none!important;
+    background-color : #fafafa!important;;
+}
+.imgCard {
+    height: 15rem;
+    width:min-content;
+}
+.link{
+    color: #000000!important;
+    text-decoration: none!important;
+}
+.cardButton{
+    border: none!important;
+    border-radius: 10px !important;
+    background-color: #e1e1e1!important;
+}
+.cardButton:hover{
+    font-weight: bold;
+    background-color: white!important;
+}
